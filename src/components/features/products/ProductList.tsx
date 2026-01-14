@@ -1,6 +1,11 @@
 import { DataGrid } from '@mui/x-data-grid';
 import type { GridColDef } from '@mui/x-data-grid';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import type { Product } from '../../../types/Product';
+import { getProductById, getProducts } from '../../../services/productService';
+import { NewProductModal } from './NewProductModal';
+
+
 
 
 interface ProductRow {
@@ -9,44 +14,65 @@ interface ProductRow {
     name: string;
 }
 
-export const ProductList = () => {
 
-    const rows: ProductRow[] = [
-        { id: 1, sku: 'SKU001', name: 'Producto 1' },
-        { id: 2, sku: 'SKU002', name: 'Producto 2' },
-        { id: 3, sku: 'SKU003', name: 'Producto 3' },
-        { id: 4, sku: 'SKU004', name: 'Producto 4' },
-        { id: 5, sku: 'SKU005', name: 'MacbookM4' },
-    ];
+export const ProductList = () => {
+    const [products, setProducts] = useState<Product[]>([]);
+    const [openModal, setOpenModal] = useState(false);
+
+
     const columns: GridColDef[] = [
         { field: 'id', headerName: 'ID', width: 100 },
         { field: 'sku', headerName: 'SKU', width: 150 },
         { field: 'name', headerName: 'Nombre', width: 200 },
+        { field: 'price', headerName: 'Precio', width: 150 },
+        { field: 'cost', headerName: 'Costo', width: 150 },
+        { field: 'stock', headerName: 'Stock', width: 150 },
+        { field: 'minStock', headerName: 'Stock Mínimo', width: 100 },
+        { field: 'maxStock', headerName: 'Stock Máximo', width: 100 },
+        { field: 'status', headerName: 'Estado', width: 200 },
     ];
+
+
     const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 5 });
 
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await getProducts();
+                setProducts(response);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+        fetchProducts();
+    }, []);
+    { }
+
     return (
+
         <div className='flex flex-col h-full w-full'>
+            {openModal && <NewProductModal isOpen={openModal} onClose={() => setOpenModal(false)} />}
             <div className='flex justify-between p-8'>
                 <h1 className='text-[40px]'>Productos</h1>
-                <button className='bg-blue-500 text-white hover:bg-blue-600 rounded-xl'>+ Nuevo Producto</button>
+                <button className='bg-blue-500 text-white hover:bg-blue-600 rounded-sm px-4 cursor-pointer' onClick={() => setOpenModal(true)}>+ Nuevo Producto</button>
 
             </div>
             <main>
                 <DataGrid
-                    rows={rows}
+                    rows={products}
                     columns={columns}
                     paginationModel={paginationModel}
                     onPaginationModelChange={setPaginationModel}
-                   
+
                     checkboxSelection
                     disableRowSelectionOnClick
                     autoHeight
-                    
+
                 />
 
 
             </main>
         </div>
     )
+
 }
