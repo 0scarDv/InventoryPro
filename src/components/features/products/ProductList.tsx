@@ -52,9 +52,9 @@ export const ProductList = () => {
 
         <div className='flex flex-col h-full w-full'>
             {openModal && <NewProductModal isOpen={openModal} onClose={() => setOpenModal(false)} />}
-            <div className='flex justify-between p-8'>
-                <h1 className='text-[40px]'>Productos</h1>
-                <button className='bg-blue-500 text-white hover:bg-blue-600 rounded-sm px-4 cursor-pointer' onClick={() => setOpenModal(true)}>+ Nuevo Producto</button>
+            <div className='flex flex-col md:justify-between md:flex-row p-8'>
+                <h1 className='text-lx font-bold text-gray-800 md:text-3xl'>Productos</h1>
+                <button className='bg-blue-500 m-2 text-white hover:bg-blue-600 rounded-sm md:px-4 md:py-2 cursor-pointer' onClick={() => setOpenModal(true)}>+ Nuevo Producto</button>
 
             </div>
             <main>

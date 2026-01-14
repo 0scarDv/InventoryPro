@@ -1,177 +1,189 @@
 {
-    "users": [
-        {
-            "id": "1",
-            "email": "admin@inventory.com",
-            "password": "admin123",
-            "name": "Admin User",
-            "role": "admin",
-            "status": "active"
-        },
-        {
-            "id": "2",
-            "email": "supervisor@inventory.com",
-            "password": "super123",
-            "name": "Supervisor User",
-            "role": "supervisor",
-            "status": "active"
-        },
-        {
-            "id": "3",
-            "email": "operador@inventory.com",
-            "password": "oper123",
-            "name": "Operador User",
-            "role": "operador",
-            "status": "active"
-        }
-    ],
-    "categories": [
-        {
-            "id": "1",
-            "name": "Laptops",
-            "description": "Portátiles",
-            "color": "#3B82F6"
-        },
-        {
-            "id": "2",
-            "name": "Smartphones",
-            "description": "Teléfonos",
-            "color": "#10B981"
-        }
-    ],
-    "products": [
-        {
-            "id": "1",
-            "sku": "LAP-001",
-            "name": "MacBook Pro 14",
-            "categoryId": "1",
-            "price": 1999.99,
-            "cost": 1500.00,
-            "stock": 15,
-            "minStock": 5,
-            "maxStock": 50,
-            "status": "active"
-        },
-        {
-            "id": "2",
-            "sku": "LAP-002",
-            "name": "Dell XPS 13",
-            "categoryId": "1",
-            "price": 1499.99,
-            "cost": 1100.00,
-            "stock": 20,
-            "minStock": 5,
-            "maxStock": 40,
-            "status": "active"
-        },
-        {
-            "id": "3",
-            "sku": "LAP-003",
-            "name": "HP Spectre x360",
-            "categoryId": "1",
-            "price": 1399.99,
-            "cost": 1000.00,
-            "stock": 10,
-            "minStock": 3,
-            "maxStock": 30,
-            "status": "active"
-        },
-        {
-            "id": "4",
-            "sku": "DES-001",
-            "name": "iMac 24\" M1",
-            "categoryId": "2",
-            "price": 1799.99,
-            "cost": 1350.00,
-            "stock": 8,
-            "minStock": 2,
-            "maxStock": 20,
-            "status": "inactive"
-        },
-        {
-            "id": "5",
-            "sku": "DES-002",
-            "name": "Dell OptiPlex 7090",
-            "categoryId": "2",
-            "price": 1199.99,
-            "cost": 850.00,
-            "stock": 12,
-            "minStock": 4,
-            "maxStock": 25,
-            "status": "active"
-        },
-        {
-            "id": "6",
-            "sku": "ACC-001",
-            "name": "Logitech MX Master 3",
-            "categoryId": "3",
-            "price": 99.99,
-            "cost": 60.00,
-            "stock": 40,
-            "minStock": 10,
-            "maxStock": 100,
-            "status": "active"
-        },
-        {
-            "id": "7",
-            "sku": "ACC-002",
-            "name": "Apple Magic Keyboard",
-            "categoryId": "3",
-            "price": 129.99,
-            "cost": 80.00,
-            "stock": 25,
-            "minStock": 5,
-            "maxStock": 60,
-            "status": "active"
-        },
-        {
-            "id": "8",
-            "sku": "MON-001",
-            "name": "LG UltraFine 5K",
-            "categoryId": "4",
-            "price": 1299.99,
-            "cost": 950.00,
-            "stock": 6,
-            "minStock": 2,
-            "maxStock": 15,
-            "status": "inactive"
-        },
-        {
-            "id": "9",
-            "sku": "MON-002",
-            "name": "Samsung Odyssey G7",
-            "categoryId": "4",
-            "price": 699.99,
-            "cost": 500.00,
-            "stock": 18,
-            "minStock": 5,
-            "maxStock": 35,
-            "status": "active"
-        },
-        {
-            "id": "10",
-            "sku": "TAB-001",
-            "name": "iPad Pro 12.9",
-            "categoryId": "5",
-            "price": 1099.99,
-            "cost": 800.00,
-            "stock": 14,
-            "minStock": 4,
-            "maxStock": 30,
-            "status": "active"
-        }
-    ],
-    "movements": [
-        {
-            "id": "1",
-            "productId": "1",
-            "type": "entrada",
-            "quantity": 20,
-            "previousStock": 0,
-            "newStock": 20,
-            "reason": "Compra inicial",
-            "userId": "1",
-            "createdAt": "2024-01-15"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@inventory.com",
+      "password": "admin123",
+      "name": "Admin User",
+      "role": "admin",
+      "status": "active"
+    },
+    {
+      "id": "2",
+      "email": "supervisor@inventory.com",
+      "password": "super123",
+      "name": "Supervisor User",
+      "role": "supervisor",
+      "status": "active"
+    },
+    {
+      "id": "3",
+      "email": "operador@inventory.com",
+      "password": "oper123",
+      "name": "Operador User",
+      "role": "operador",
+      "status": "active"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Laptops",
+      "description": "Portátiles",
+      "color": "#3B82F6"
+    },
+    {
+      "id": "2",
+      "name": "Smartphones",
+      "description": "Teléfonos",
+      "color": "#10B981"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "sku": "LAP-001",
+      "name": "MacBook Pro 14",
+      "categoryId": "1",
+      "price": 1999.99,
+      "cost": 1500,
+      "stock": 15,
+      "minStock": 5,
+      "maxStock": 50,
+      "status": "active"
+    },
+    {
+      "id": "2",
+      "sku": "LAP-002",
+      "name": "Dell XPS 13",
+      "categoryId": "1",
+      "price": 1499.99,
+      "cost": 1100,
+      "stock": 20,
+      "minStock": 5,
+      "maxStock": 40,
+      "status": "active"
+    },
+    {
+      "id": "3",
+      "sku": "LAP-003",
+      "name": "HP Spectre x360",
+      "categoryId": "1",
+      "price": 1399.99,
+      "cost": 1000,
+      "stock": 10,
+      "minStock": 3,
+      "maxStock": 30,
+      "status": "active"
+    },
+    {
+      "id": "4",
+      "sku": "DES-001",
+      "name": "iMac 24\" M1",
+      "categoryId": "2",
+      "price": 1799.99,
+      "cost": 1350,
+      "stock": 8,
+      "minStock": 2,
+      "maxStock": 20,
+      "status": "inactive"
+    },
+    {
+      "id": "5",
+      "sku": "DES-002",
+      "name": "Dell OptiPlex 7090",
+      "categoryId": "2",
+      "price": 1199.99,
+      "cost": 850,
+      "stock": 12,
+      "minStock": 4,
+      "maxStock": 25,
+      "status": "active"
+    },
+    {
+      "id": "6",
+      "sku": "ACC-001",
+      "name": "Logitech MX Master 3",
+      "categoryId": "3",
+      "price": 99.99,
+      "cost": 60,
+      "stock": 40,
+      "minStock": 10,
+      "maxStock": 100,
+      "status": "active"
+    },
+    {
+      "id": "7",
+      "sku": "ACC-002",
+      "name": "Apple Magic Keyboard",
+      "categoryId": "3",
+      "price": 129.99,
+      "cost": 80,
+      "stock": 25,
+      "minStock": 5,
+      "maxStock": 60,
+      "status": "active"
+    },
+    {
+      "id": "8",
+      "sku": "MON-001",
+      "name": "LG UltraFine 5K",
+      "categoryId": "4",
+      "price": 1299.99,
+      "cost": 950,
+      "stock": 6,
+      "minStock": 2,
+      "maxStock": 15,
+      "status": "inactive"
+    },
+    {
+      "id": "9",
+      "sku": "MON-002",
+      "name": "Samsung Odyssey G7",
+      "categoryId": "4",
+      "price": 699.99,
+      "cost": 500,
+      "stock": 18,
+      "minStock": 5,
+      "maxStock": 35,
+      "status": "active"
+    },
+    {
+      "id": "10",
+      "sku": "TAB-001",
+      "name": "iPad Pro 12.9",
+      "categoryId": "5",
+      "price": 1099.99,
+      "cost": 800,
+      "stock": 14,
+      "minStock": 4,
+      "maxStock": 30,
+      "status": "active"
+    },
+    {
+      "id": "30",
+      "sku": "MAC-001",
+      "name": "Samsung galaxy s24",
+      "categoryId": "1",
+      "price": 300,
+      "cost": 100,
+      "stock": 5,
+      "minStock": 2,
+      "maxStock": 10,
+      "status": "active"
+    }
+  ],
+  "movements": [
+    {
+      "id": "1",
+      "productId": "1",
+      "type": "entrada",
+      "quantity": 20,
+      "previousStock": 0,
+      "newStock": 20,
+      "reason": "Compra inicial",
+      "userId": "1",
+      "createdAt": "2024-01-15"
+    }
+  ]
 }

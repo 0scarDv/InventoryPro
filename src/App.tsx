@@ -6,6 +6,7 @@ import './App.css'
 import { MainLayout } from './components/layout/MainLayout';
 import { ProductList } from './components/features/products/ProductList';
 import { NewProductModal } from './components/features/products/NewProductModal';
+import { ModalConfirm } from './components/ui/ModalConfirm';
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
       path: '/', element: <MainLayout />,
       children: [
         { path: 'products', element: <ProductList /> },
-        { path: 'clients', element: <NewProductModal /> }
+       
 
       ]
     }
