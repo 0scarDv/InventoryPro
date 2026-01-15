@@ -14,3 +14,11 @@ export const createProduct = async (product: Product): Promise<Product> => {
     const response = await api.post<Product>('/products', product);
     return response.data;
 };
+
+export const deleteProduct = async (id: string) => {
+    await api.delete('/products/' + id);
+}
+export const updateProduct = async (id: string, newProduct: Product): Promise<Product> => {
+    const response = await api.put<Product>(`/products/${id}`, newProduct);
+    return response.data;
+}

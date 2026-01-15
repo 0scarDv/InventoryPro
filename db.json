@@ -43,7 +43,7 @@
     {
       "id": "1",
       "sku": "LAP-001",
-      "name": "MacBook Pro 14",
+      "name": "MacBook Pro 15",
       "categoryId": "1",
       "price": 1999.99,
       "cost": 1500,
@@ -98,30 +98,6 @@
       "stock": 12,
       "minStock": 4,
       "maxStock": 25,
-      "status": "active"
-    },
-    {
-      "id": "6",
-      "sku": "ACC-001",
-      "name": "Logitech MX Master 3",
-      "categoryId": "3",
-      "price": 99.99,
-      "cost": 60,
-      "stock": 40,
-      "minStock": 10,
-      "maxStock": 100,
-      "status": "active"
-    },
-    {
-      "id": "7",
-      "sku": "ACC-002",
-      "name": "Apple Magic Keyboard",
-      "categoryId": "3",
-      "price": 129.99,
-      "cost": 80,
-      "stock": 25,
-      "minStock": 5,
-      "maxStock": 60,
       "status": "active"
     },
     {
