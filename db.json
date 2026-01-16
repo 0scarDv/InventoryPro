@@ -55,7 +55,7 @@
     {
       "id": "2",
       "sku": "LAP-002",
-      "name": "Dell XPS 13",
+      "name": "Dell XPS 12",
       "categoryId": "1",
       "price": 1499.99,
       "cost": 1100,
@@ -91,7 +91,7 @@
     {
       "id": "5",
       "sku": "DES-002",
-      "name": "Dell OptiPlex 7090",
+      "name": "Dell OptiPlex 7080",
       "categoryId": "2",
       "price": 1199.99,
       "cost": 850,

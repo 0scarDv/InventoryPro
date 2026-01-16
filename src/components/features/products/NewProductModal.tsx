@@ -43,7 +43,7 @@ export const NewProductModal = ({ isOpen, onClose }: NewProductModalProps) => {
 
 
   return (
-    <div className='w-full h-full z-100 bg-gray-600/70 fixed top-0 left-0 flex justify-center items-center'>
+    <div  onClick={() => { onClose?.(); }} className='w-full h-full z-100 bg-gray-600/70 fixed top-0 left-0 flex justify-center items-center'>
       <div className='w-full h-full bg-white sm:w-1/2 sm:h-3/4 rounded-lg pl-8 pr-8 pt-8 overflow-y-auto  '>
         <h1>Nuevo Producto</h1>
         <div className=''>

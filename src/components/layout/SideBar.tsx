@@ -20,7 +20,7 @@ export const SideBar = () => {
                     <button className='bg-gray-800 w-64 p-4 flex flex-row items-center pl-10  text-[20px] text-gray-100 hover:bg-gray-700'>
                         <FaCubes className='mr-4' /> Productos</button>
                 </Link>
-                <Link to="clients">
+                <Link to="login">
                     <button className='bg-gray-800 w-64 p-4 flex flex-row items-center pl-10  text-[20px]  text-gray-100 hover:bg-gray-700'>
                         <FaUserFriends className='mr-4' />Clientes</button>
                 </Link>

@@ -12,6 +12,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import { ModalConfirm } from '../../ui/ModalConfirm';
 import { EditProductModal } from './EditProductModal';
+import { ViewProduct } from './ViewProduct';
 
 
 export const ProductList = () => {
@@ -19,6 +20,7 @@ export const ProductList = () => {
     const [productIdSelected, setProductIdSelected] = useState<string>("");
     const [openModal, setOpenModal] = useState(false);
     const [openEditModal, setOpenEditModal] = useState(false);
+    const [openModalViewProduct, setOpenModalViewProduct] = useState(false);
     const [openModalConfirm, setOpenModalConfirm] = useState(false);
 
 
@@ -34,12 +36,20 @@ export const ProductList = () => {
             field: 'actions', headerName: 'Acciones', width: 130,
             renderCell: (params) => (
                 <div>
-                    <button className='justify-center text-gray-900  text-xl hover:bg-blue-600 hover:text-white rounded-2xl px-2 py-2 cursor-pointer'>
+                    {/* Vista */}
+                    <button onClick={() => {
+                        setOpenModalViewProduct(true);
+                        setProductIdSelected(params.row.id);
+                    }} className='justify-center text-gray-900  text-xl hover:bg-blue-600 hover:text-white rounded-2xl px-2 py-2 cursor-pointer'>
                         <FaEye />
                     </button>
-                    <button onClick={() => { setOpenEditModal(true); setProductIdSelected(params.row.id); }} className='text-gray-900  text-xl hover:bg-blue-600 hover:bg-orange-500 hover:text-white rounded-3xl  px-2 py-2 cursor-pointer'>
-                        <FaRegEdit /></button>
 
+                    {/* Editar */}
+                    <button onClick={() => { setOpenEditModal(true); setProductIdSelected(params.row.id); }} className='text-gray-900  text-xl hover:bg-blue-600 hover:bg-orange-500 hover:text-white rounded-3xl  px-2 py-2 cursor-pointer'>
+                        <FaRegEdit />
+                    </button>
+
+                    {/* Eliminación */}
                     <button onClick={() => {
                         setOpenModalConfirm(true);
                         setProductIdSelected(params.row.id);
@@ -55,15 +65,16 @@ export const ProductList = () => {
 
     const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 5 });
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await getProducts();
-                setProducts(response);
-            } catch (error) {
-                console.error('Error fetching products:', error);
-            }
+    const fetchProducts = async () => {
+        try {
+            const response = await getProducts();
+            setProducts(response);
+        } catch (error) {
+            console.error('Error fetching products:', error);
         }
+    }
+
+    useEffect(() => {
         fetchProducts();
     }, []);
 
@@ -82,8 +93,9 @@ export const ProductList = () => {
 
         <div className='flex flex-col h-full w-full'>
             {openModal && <NewProductModal isOpen={openModal} onClose={() => setOpenModal(false)} />}
-            {openEditModal && <EditProductModal isOpen={openEditModal} onClose={() => setOpenEditModal(false)} idProduct={productIdSelected} />}
-            {openModalConfirm && productIdSelected &&<ModalConfirm inOpen={openModalConfirm} onClose={() => setOpenModalConfirm(false)} accion="Eliminar"
+            {openModalViewProduct && <ViewProduct isOpen={openModalViewProduct} onClose={() => setOpenModalViewProduct(false)} idProduct={productIdSelected} />}
+            {openEditModal && <EditProductModal isOpen={openEditModal} onClose={() => setOpenEditModal(false)} idProduct={productIdSelected} refetch={() => { fetchProducts() }} />}
+            {openModalConfirm && productIdSelected && <ModalConfirm inOpen={openModalConfirm} onClose={() => setOpenModalConfirm(false)} accion="Eliminar"
                 onConfirm={() => {
                     if (productIdSelected) {
                         handleDelete(productIdSelected);

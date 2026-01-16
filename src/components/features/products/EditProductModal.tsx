@@ -6,8 +6,9 @@ interface NewProductModalProps {
     isOpen: boolean;
     onClose?: () => void;
     idProduct: string;
+    refetch?: () => void;
 }
-export const EditProductModal = ({ isOpen, onClose, idProduct }: NewProductModalProps) => {
+export const EditProductModal = ({ isOpen, onClose, idProduct, refetch }: NewProductModalProps) => {
     if (!isOpen) return null
     const [product, setProduct] = useState<Product | null>(null);
 
@@ -28,10 +29,11 @@ export const EditProductModal = ({ isOpen, onClose, idProduct }: NewProductModal
         };
 
         await updateProduct(idProduct, updatedProduct);
+        refetch?.();
     }
 
     return (
-        <div className='w-full h-full z-100 bg-gray-600/70 fixed top-0 left-0 flex justify-center items-center'>
+        <div onClick={() => { onClose?.(); }} className='w-full h-full z-100 bg-gray-600/70 fixed top-0 left-0 flex justify-center items-center'>
             <div className='w-full h-full bg-white sm:w-1/2 sm:h-3/4 rouInded-lg pl-8 pr-8 pt-8 overflow-y-auto  '>
                 <h1>Nuevo Producto</h1>
                 <div className=''>
@@ -99,7 +101,7 @@ export const EditProductModal = ({ isOpen, onClose, idProduct }: NewProductModal
                         </select>
                     </p>
                 </div>
-                <div className='h-24 sticky bottom-0 bg-white mt-2 p-2 flex justify-between items-center mt-4'>
+                <div className='h-24  sticky bottom-0 bg-white mt-2 p-2 flex justify-between items-center mt-4'>
                     <button onClick={onClose} className='w-[45%] h-[70%] bg-gray-200 text-gray-700 hover:bg-gray-300 rounded'>Cancelar</button>
                     <button onClick={() => {
                         putProduct();
