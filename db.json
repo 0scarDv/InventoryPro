@@ -37,6 +37,12 @@
       "name": "Smartphones",
       "description": "Teléfonos",
       "color": "#10B981"
+    },
+    {
+      "id": "3",
+      "name": "Muebles",
+      "description": "Muebles de madera para oficina",
+      "color": "#234234"
     }
   ],
   "products": [
@@ -89,18 +95,6 @@
       "status": "inactive"
     },
     {
-      "id": "5",
-      "sku": "DES-002",
-      "name": "Dell OptiPlex 7080",
-      "categoryId": "2",
-      "price": 1199.99,
-      "cost": 850,
-      "stock": 12,
-      "minStock": 4,
-      "maxStock": 25,
-      "status": "active"
-    },
-    {
       "id": "8",
       "sku": "MON-001",
       "name": "LG UltraFine 5K",
@@ -139,13 +133,49 @@
     {
       "id": "30",
       "sku": "MAC-001",
-      "name": "Samsung galaxy s24",
+      "name": "Samsung galaxy s24 fe",
       "categoryId": "1",
       "price": 300,
       "cost": 100,
       "stock": 5,
       "minStock": 2,
       "maxStock": 10,
+      "status": "active"
+    },
+    {
+      "id": "50",
+      "sku": "MAC-777",
+      "name": "Empanada con mandioca",
+      "categoryId": "2",
+      "price": 5000,
+      "cost": 1000,
+      "stock": 20,
+      "minStock": 4,
+      "maxStock": 50,
+      "status": "active"
+    },
+    {
+      "id": "4567",
+      "sku": "678",
+      "name": "hola que tal",
+      "categoryId": "1",
+      "price": 435234,
+      "cost": 234345,
+      "stock": 4545454,
+      "minStock": 45445,
+      "maxStock": 45445,
+      "status": "active"
+    },
+    {
+      "id": "234234",
+      "sku": "fdvbf434",
+      "name": "Iphone 13 pro ",
+      "categoryId": "2",
+      "price": 300,
+      "cost": 200,
+      "stock": 10,
+      "minStock": 2,
+      "maxStock": 30,
       "status": "active"
     }
   ],

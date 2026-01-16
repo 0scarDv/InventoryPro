@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import type { Product } from '../../../types/Product';
 import { getProductById } from '../../../services/productService';
+import type { Category } from '../../../types/Category';
+import { getCategories } from '../../../services/categoryService';
 
 interface ViewProductProps {
     isOpen: boolean;
@@ -12,6 +14,8 @@ export const ViewProduct = ({ isOpen, onClose, idProduct }: ViewProductProps) =>
     if (!isOpen) return null;
 
     const [product, setProduct] = useState<Product | null>(null);
+    const [categories, setCategories] = useState<Category[]>([]);
+
 
     useEffect(() => {
         if (!idProduct) return;
@@ -20,9 +24,20 @@ export const ViewProduct = ({ isOpen, onClose, idProduct }: ViewProductProps) =>
             const product = await getProductById(id);
             setProduct(product);
         };
+        const fetchCategories = async () => {
+            try {
+                const response = await getCategories();
+                setCategories(response);
+            } catch (error) {
+                console.log(error);
+            }
+        };
 
         fetchProduct(idProduct);
+        fetchCategories();
     }, [idProduct]);
+
+    const categoryName = categories.find(cat => cat.id === product?.categoryId)?.name
 
     if (!product) {
         return (
@@ -47,7 +62,7 @@ export const ViewProduct = ({ isOpen, onClose, idProduct }: ViewProductProps) =>
                     <p><strong>ID:</strong> {product.id}</p>
                     <p><strong>SKU:</strong> {product.sku}</p>
                     <p><strong>Nombre:</strong> {product.name}</p>
-                    <p><strong>Categoría:</strong> {product.categoryId}</p>
+                    <p><strong>Categoría:</strong> {categoryName}</p>
                     <p><strong>Precio:</strong> ${product.price.toFixed(2)}</p>
                     <p><strong>Costo:</strong> ${product.cost.toFixed(2)}</p>
                     <p><strong>Stock actual:</strong> {product.stock}</p>

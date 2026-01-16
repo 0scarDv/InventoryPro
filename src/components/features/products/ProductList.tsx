@@ -13,11 +13,15 @@ import { MdDeleteOutline } from "react-icons/md";
 import { ModalConfirm } from '../../ui/ModalConfirm';
 import { EditProductModal } from './EditProductModal';
 import { ViewProduct } from './ViewProduct';
+import type { Category } from '../../../types/Category';
 
 
 export const ProductList = () => {
     const [products, setProducts] = useState<Product[]>([]);
+    const [categories, setCategories] = useState<Category[]>([]);
     const [productIdSelected, setProductIdSelected] = useState<string>("");
+    const [inputSearch, setInputSearch] = useState<string>("");
+    const [filter, setFilter] = useState<string>("");
     const [openModal, setOpenModal] = useState(false);
     const [openEditModal, setOpenEditModal] = useState(false);
     const [openModalViewProduct, setOpenModalViewProduct] = useState(false);
@@ -65,6 +69,12 @@ export const ProductList = () => {
 
     const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 5 });
 
+    {/*Filtra los productos segun el input de busqueda */ }
+    const filteredProducts = products.filter(product => product.sku.toLowerCase().includes(inputSearch.toLowerCase()) || product.name.toLowerCase().includes(inputSearch.toLowerCase()));
+
+
+
+    {/*Pedir productos */ }
     const fetchProducts = async () => {
         try {
             const response = await getProducts();
@@ -74,11 +84,12 @@ export const ProductList = () => {
         }
     }
 
+
     useEffect(() => {
         fetchProducts();
     }, []);
 
-
+    {/*Eliminar producto */ }
     const handleDelete = async (id: string) => {
         try {
             await deleteProduct(id);
@@ -92,7 +103,7 @@ export const ProductList = () => {
     return (
 
         <div className='flex flex-col h-full w-full'>
-            {openModal && <NewProductModal isOpen={openModal} onClose={() => setOpenModal(false)} />}
+            {openModal && <NewProductModal isOpen={openModal} onClose={() => setOpenModal(false)} reFetch={fetchProducts} />}
             {openModalViewProduct && <ViewProduct isOpen={openModalViewProduct} onClose={() => setOpenModalViewProduct(false)} idProduct={productIdSelected} />}
             {openEditModal && <EditProductModal isOpen={openEditModal} onClose={() => setOpenEditModal(false)} idProduct={productIdSelected} refetch={() => { fetchProducts() }} />}
             {openModalConfirm && productIdSelected && <ModalConfirm inOpen={openModalConfirm} onClose={() => setOpenModalConfirm(false)} accion="Eliminar"
@@ -104,17 +115,26 @@ export const ProductList = () => {
                 }} />}
             <div className='flex flex-col md:justify-between md:flex-row p-8'>
                 <h1 className='text-lx font-bold text-gray-800 md:text-3xl'>Productos</h1>
+                <input type="text" placeholder='Buscar Productos' onChange={(e) => { setInputSearch(e.target.value) }} className="
+    w-full md:w-1/3
+    px-4 
+    border-2 border-gray-300
+    rounded-lg
+    shadow-sm
+    focus:outline-none focus:ring-2  focus:ring-blue-500 
+    transition
+    placeholder-gray-400
+  " />
                 <button className='bg-blue-500 m-2 text-white hover:bg-blue-600 rounded-sm md:px-4 md:py-2 cursor-pointer' onClick={() => setOpenModal(true)}>+ Nuevo Producto</button>
 
             </div>
+
             <main>
                 <DataGrid
-                    rows={products}
+                    rows={filteredProducts}
                     columns={columns}
                     paginationModel={paginationModel}
                     onPaginationModelChange={setPaginationModel}
-
-                    checkboxSelection
                     disableRowSelectionOnClick
                     autoHeight
 

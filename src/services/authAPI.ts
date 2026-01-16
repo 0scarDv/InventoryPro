@@ -27,4 +27,16 @@ export async function login(email: string, password: string): Promise<string | n
         console.error('Login error:', error);
         return null;
     }
+
+
+}
+export const isTokenValid = (): boolean => {
+    const token = localStorage.getItem('token');
+    if (!token) return false;
+    try {
+        const decoded = JSON.parse(atob(token));
+        return decoded.exp > Date.now();
+    } catch (error) {
+        return false;
+    }
 }
