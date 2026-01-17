@@ -102,8 +102,8 @@ export const Login = () => {
                         <strong>Credenciales de prueba:</strong>
                     </p>
                     <p className="text-sm text-gray-500">
-                        Email: admin@minierp.com <br />
-                        Password: test123456
+                        Email: admin@inventory.com
+                        Password: admin123
                     </p>
                 </div>
             </div>

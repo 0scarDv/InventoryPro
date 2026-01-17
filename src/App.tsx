@@ -9,6 +9,7 @@ import { Login } from './pages/Login';
 import { CategoriesList } from './components/features/categories/CategoriesList';
 import { ProtectedRoute } from './routes/ProtectedRoute';
 import { MovementList } from './components/features/Movimientos/MovementsList';
+import { Dashboard } from './components/features/dashboard/Dashboard';
 
 function App() {
 
@@ -24,14 +25,17 @@ function App() {
           path: '/home',
           element: <MainLayout />, // Layout de la app
           children: [
+
+            { path: 'dashboard', element: <Dashboard /> },
             { path: 'products', element: <ProductList /> },
             { path: 'categories', element: <CategoriesList /> },
             { path: 'movements', element: <MovementList /> },
           ]
-        }]
-
+        },
+      ]
     }
   ]);
+
 
   return (
     <RouterProvider router={routes} />

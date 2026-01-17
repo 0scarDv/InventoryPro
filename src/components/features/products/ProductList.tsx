@@ -7,13 +7,15 @@ import { NewProductModal } from './NewProductModal';
 import { useParams } from 'react-router-dom';
 import { IoEyeOutline } from "react-icons/io5";
 
-import { FaEye } from "react-icons/fa";
+import { FaCubes, FaEye } from "react-icons/fa";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import { ModalConfirm } from '../../ui/ModalConfirm';
 import { EditProductModal } from './EditProductModal';
 import { ViewProduct } from './ViewProduct';
 import type { Category } from '../../../types/Category';
+import { TbPointFilled } from "react-icons/tb";
+
 
 
 export const ProductList = () => {
@@ -26,6 +28,7 @@ export const ProductList = () => {
     const [openEditModal, setOpenEditModal] = useState(false);
     const [openModalViewProduct, setOpenModalViewProduct] = useState(false);
     const [openModalConfirm, setOpenModalConfirm] = useState(false);
+
 
 
 
@@ -67,7 +70,7 @@ export const ProductList = () => {
     ];
 
 
-    const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 5 });
+    const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 6 });
 
     {/*Filtra los productos segun el input de busqueda */ }
     const filteredProducts = products.filter(product => product.sku.toLowerCase().includes(inputSearch.toLowerCase()) || product.name.toLowerCase().includes(inputSearch.toLowerCase()));
@@ -113,10 +116,11 @@ export const ProductList = () => {
                         setOpenModalConfirm(false);
                     }
                 }} />}
-            <div className='flex flex-col md:justify-between md:flex-row p-8'>
-                <h1 className='text-lx font-bold text-gray-800 md:text-3xl'>Productos</h1>
+            <div className='flex flex-col md:justify-between md:flex-row p-8    '>
+                <h1 className='text-lx font-bold text-indigo-900 md:text-3xl flex items-center'>Productos  <FaCubes className='ml-2' /></h1>
                 <input type="text" placeholder='Buscar Productos' onChange={(e) => { setInputSearch(e.target.value) }} className="
     w-full md:w-1/3
+    bg-white
     px-4 
     border-2 border-gray-300
     rounded-lg
@@ -125,12 +129,12 @@ export const ProductList = () => {
     transition
     placeholder-gray-400
   " />
-                <button className='bg-blue-500 m-2 text-white hover:bg-blue-600 rounded-sm md:px-4 md:py-2 cursor-pointer' onClick={() => setOpenModal(true)}>+ Nuevo Producto</button>
+                <button className='bg-indigo-600 m-2 text-white hover:bg-indigo-800 rounded-sm md:px-4 md:py-2 cursor-pointer' onClick={() => setOpenModal(true)}>+ Nuevo Producto</button>
 
             </div>
 
-            <main>
-                <DataGrid
+            <main className='bg-gray-100 rounded-xl  shadow-md '>
+                <DataGrid className='bg-indigo-400'
                     rows={filteredProducts}
                     columns={columns}
                     paginationModel={paginationModel}

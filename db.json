@@ -155,18 +155,6 @@
       "status": "active"
     },
     {
-      "id": "4567",
-      "sku": "678",
-      "name": "hola que tal",
-      "categoryId": "1",
-      "price": 435234,
-      "cost": 234345,
-      "stock": 4545454,
-      "minStock": 45445,
-      "maxStock": 45445,
-      "status": "active"
-    },
-    {
       "id": "234234",
       "sku": "fdvbf434",
       "name": "Iphone 13 pro ",
@@ -190,6 +178,50 @@
       "reason": "Compra inicial",
       "userId": "1",
       "createdAt": "2024-01-15"
+    },
+    {
+      "id": "2",
+      "productId": "3",
+      "type": "entrada",
+      "quantity": "5",
+      "previousStock": 10,
+      "newStock": "105",
+      "reason": "Nueva carga de mercaderias",
+      "userId": "1",
+      "createdAt": "2026-01-17T20:04:46.060Z"
+    },
+    {
+      "id": "3",
+      "productId": "1",
+      "type": "salida",
+      "quantity": 2,
+      "previousStock": 0,
+      "newStock": 0,
+      "reason": "Venta de equipos informaticos",
+      "userId": "1",
+      "createdAt": "2026-01-17T23:00:47.271Z"
+    },
+    {
+      "id": "4",
+      "productId": "1",
+      "type": "salida",
+      "quantity": 2,
+      "previousStock": 0,
+      "newStock": 0,
+      "reason": "Venta de equipos informaticos",
+      "userId": "1",
+      "createdAt": "2026-01-17T23:00:47.271Z"
+    },
+    {
+      "id": "5",
+      "productId": "1",
+      "type": "salida",
+      "quantity": 2,
+      "previousStock": 0,
+      "newStock": 0,
+      "reason": "Venta de equipos informaticos",
+      "userId": "1",
+      "createdAt": "2026-01-17T23:00:47.271Z"
     }
   ]
 }

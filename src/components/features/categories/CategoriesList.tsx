@@ -14,6 +14,7 @@ import { ModalConfirm } from "../../ui/ModalConfirm";
 import type { Product } from "../../../types/Product";
 import { getProducts } from "../../../services/productService";
 import { set } from "react-hook-form";
+import { TfiLayoutMenuV } from "react-icons/tfi";
 
 export const CategoriesList = () => {
     const [categories, setCategories] = useState<Category[]>([]);
@@ -159,11 +160,11 @@ export const CategoriesList = () => {
 
             {/* Header */}
             <div className="flex flex-col md:flex-row md:justify-between p-8">
-                <h1 className="font-bold text-gray-800 text-2xl md:text-3xl">
-                    Categorías
+                <h1 className="font-bold text-indigo-800 text-2xl md:text-3xl flex items-center">
+                    Categorías <TfiLayoutMenuV className="ml-2" />
                 </h1>
                 <button
-                    className="bg-blue-500 text-white hover:bg-blue-600 rounded-sm px-4 py-2 mt-2 md:mt-0"
+                    className="bg-indigo-600 text-white hover:bg-indigo-800 rounded-sm px-4 py-2 mt-2 md:mt-0"
                     onClick={() => setOpenNewModal(true)}
                 >
                     + Nueva Categoría
