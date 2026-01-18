@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react'
-import { createProduct, getProducts } from '../../../services/productService'
+import { createProduct, getProducts, updateProduct } from '../../../services/productService'
 import { getCategories } from '../../../services/categoryService';
 import type { Category } from '../../../types/Category';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -68,27 +68,45 @@ export const NewMovement = ({ isOpen, onClose, reFetch }: NewMovementModal) => {
         }
     }
     const postMovement = async () => {
+        if (!selectedProduct) return; // evita errores si no hay producto seleccionado
 
+        // calcular el nuevo stock localmente
+        let updatedStock = selectedProduct.stock;
+        if (type === 'entrada') updatedStock += quantity;
+        else if (type === 'salida') updatedStock -= quantity;
+        else if (type === 'ajuste') updatedStock = quantity;
+
+        // Crear el movimiento
         const newMovement = {
             id: String(movements.length + 1),
-            productId: selectedProduct?.id || '',
+            productId: selectedProduct.id,
             type,
             quantity,
-            previousStock: previousStock,
-            newStock: newStock,
+            previousStock: selectedProduct.stock,
+            newStock: updatedStock,
             reason: motive,
             userId: "1",
             createdAt: new Date().toISOString(),
-        }
+        };
+
         try {
             const createdMovement = await createMovement(newMovement);
-            console.log('Movement created successfully:', createdMovement);
+            console.log('Movimiento creado:', createdMovement);
+
+            // 2️⃣ Actualizar stock del producto
+            const updatedProduct = {
+                ...selectedProduct,
+                stock: updatedStock
+            };
+            await updateProduct(selectedProduct.id, updatedProduct);
+            console.log('Producto actualizado:', updatedProduct);
+
+        } catch (error) {
+            console.error('Error al crear movimiento o actualizar producto:', error);
         }
-        catch (error) {
-            console.error('Error creating movement:', error);
-        }
-        reFetch?.();
-    }
+
+        reFetch?.(); // refrescar listas
+    };
 
 
     return (

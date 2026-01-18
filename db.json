@@ -53,7 +53,7 @@
       "categoryId": "1",
       "price": 1999.99,
       "cost": 1500,
-      "stock": 15,
+      "stock": 10,
       "minStock": 5,
       "maxStock": 50,
       "status": "active"
@@ -153,18 +153,6 @@
       "minStock": 4,
       "maxStock": 50,
       "status": "active"
-    },
-    {
-      "id": "234234",
-      "sku": "fdvbf434",
-      "name": "Iphone 13 pro ",
-      "categoryId": "2",
-      "price": 300,
-      "cost": 200,
-      "stock": 10,
-      "minStock": 2,
-      "maxStock": 30,
-      "status": "active"
     }
   ],
   "movements": [
@@ -222,6 +210,18 @@
       "reason": "Venta de equipos informaticos",
       "userId": "1",
       "createdAt": "2026-01-17T23:00:47.271Z"
+    },
+
+    {
+      "id": "7",
+      "productId": "1",
+      "type": "ajuste",
+      "quantity": 10,
+      "previousStock": 15,
+      "newStock": 10,
+      "reason": "Verificacion de stock",
+      "userId": "1",
+      "createdAt": "2026-01-18T05:12:35.099Z"
     }
   ]
 }

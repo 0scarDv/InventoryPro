@@ -1,73 +1,45 @@
-# React + TypeScript + Vite
+# InventoryPro
+Aplicacion web hecha con React, TypeScrip y Tailwind
+Cuenta con un Login, un Dashboard, CRUD para productos, CRUD para categorias de prodcutos
+Menu para realizar movimientos de productos (Stock) 
+# Tecnologias
+- TypeScript
+- React 
+- Tailwind
+- Json-server(api simulada)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Instalacion 
+- Clonar el repositorio e instala las dependencias (npm i)
+- En la terminal ejecutar npm run dev
+- En una una nueva, npm run start (para correr nuestra api con JSON-SERVER)
 
-Currently, two official plugins are available:
+# Inicio de sesion 
+Admin:
+Correo: admin@inventory.com
+Contrasenha admin123
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Estructura del Proyecto
+ 
+ ├─ components/     # Componentes y paginas 
+ ├─ pages/          # Páginas principales
+ ├─ routes/         # Configuración de rutas
+ ├─ services/       # Lógica de comunicación con APIs
+ ├─ hooks/          # Custom hooks
+ ├─ types/          # Tipos de TypeScript
+ ├─ App.tsx         # Componente principal
+# Funcionalidades implementadas vs pendientes
+Funcionalidad	Estado
+Login / Autenticación	(falta agregar otros usuarios y autorizacion)
+Registro de usuario	✅ Implementada
+Rutas protegidas por rol	⚠️ En progreso
+Gestión de sesión con JWT	(simulado)
+Logout	✅ Implementada (sa sesion se cierra despues de 5 minutos)
+Persistencia de sesión	⚠️ Pendiente
+Dashboard con cards y graficos	✅ Implementada 
+CRUD de productos 	✅ Implementada 
+CRUD de categorias 	✅ Implementada 
+CRUD de movimientos 	✅ Implementada 
+Validaciones de formularios	✅ Implementada parcialmente (faltan algunas validaciones)
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# Capturas de pantalla: 
+https://drive.google.com/drive/folders/10KKl8JjNHfbZXSXRbeGXMJM1wVgFgBaQ?usp=sharing

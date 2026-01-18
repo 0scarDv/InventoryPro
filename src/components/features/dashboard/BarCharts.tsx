@@ -22,7 +22,7 @@ export const BarCharts = () => {
                 // Agrupar movimientos por tipo y sumar cantidades
                 const totals: Record<string, number> = { entrada: 0, salida: 0, ajuste: 0 };
                 movements.forEach((mov) => {
-                    totals[mov.type] += mov.quantity;
+                    totals[mov.type] += Number(mov.quantity);
                 });
 
                 setData([
@@ -39,18 +39,18 @@ export const BarCharts = () => {
     }, []);
 
     const colors: Record<string, string> = {
-        entrada: "#22c55e", // verde
-        salida: "#ef4444", // rojo
+        entrada: "#5042d2", // verde
+        salida: "#e33030", // rojo
         ajuste: "#facc15", // amarillo
     };
 
     return (
-        <div className="bg-red-300 rounded-xl shadow-md p-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">
+        <div className="bg-white h-full rounded-xl shadow-md p-6 ring ring-indigo-500/50 m-2">
+            <h3 className="text-lg font-semibold text-indigo-800 mb-4">
                 Movimientos de Inventario
             </h3>
 
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={data}>
                     <XAxis dataKey="type" />
                     <YAxis />

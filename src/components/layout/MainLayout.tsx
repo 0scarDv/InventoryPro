@@ -7,9 +7,10 @@ export const MainLayout = () => {
 
 
     return (
-        <div className='flex min-h-screen bg-gray-200 '>
+        <div className='flex w-full bg-gray-100 '>
             <aside className='hidden md:block '><SideBar /></aside>
-            <div className='w-screen h-screen flex bg-indigo-100/50 p-10'><Outlet /></div>
+            <div className='flex-1 h-full flex bg-indigo-100/50 pt-6 px-6 overflow-hidden'>
+                <Outlet /></div>
         </div>
     )
 }

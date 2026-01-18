@@ -15,7 +15,7 @@ export const SideBar = () => {
                 <h1 className='font-sans text-xl'>InventoryPro</h1>
             </div>
             <div>
-                <Link to="dashboard">
+                <Link to="/home">
                     <button className='bg-indigo-900 w-64 p-4 flex flex-row items-center pl-10 text-[20px] text-gray-100 hover:bg-gray-700'>
                         <IoStatsChartSharp className='mr-4' />Dashboard</button>
                 </Link>

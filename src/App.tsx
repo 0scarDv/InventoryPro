@@ -26,7 +26,7 @@ function App() {
           element: <MainLayout />, // Layout de la app
           children: [
 
-            { path: 'dashboard', element: <Dashboard /> },
+            { index: true, element: <Dashboard /> },
             { path: 'products', element: <ProductList /> },
             { path: 'categories', element: <CategoriesList /> },
             { path: 'movements', element: <MovementList /> },
